@@ -1,4 +1,0 @@
-Manifest-Version: 1.0
-Sealed: true
-Main-Class: rebecca.e10.run.Run
-
