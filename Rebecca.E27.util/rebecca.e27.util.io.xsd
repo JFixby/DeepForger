@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/rebecca.e27.util.io" xmlns:tns="http://www.example.org/rebecca.e27.util.io" elementFormDefault="qualified">
+
+    <complexType name="xFile">
+    	<sequence>
+    		<element name="name" type="string" minOccurs="1"
+    			maxOccurs="1">
+    		</element>
+    		<element name="data" type="string" minOccurs="1"
+    			maxOccurs="1">
+    		</element>
+    		<element name="type" type="string" minOccurs="1" maxOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="xFolder">
+    	<sequence>
+    		<element name="name" type="string" minOccurs="1"
+    			maxOccurs="1">
+    		</element>
+    		<sequence minOccurs="0" maxOccurs="unbounded">
+    			<element name="files" type="tns:xFile"></element>
+    		</sequence>
+
+    		<sequence minOccurs="0" maxOccurs="unbounded"><element name="folders" type="tns:xFolder"></element></sequence>
+    	</sequence>
+    </complexType>
+</schema>

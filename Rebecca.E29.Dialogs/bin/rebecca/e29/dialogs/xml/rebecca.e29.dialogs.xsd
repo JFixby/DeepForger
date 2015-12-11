@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema
+	xmlns:this="http:///Rebecca.E29/src/rebecca/e29/dialogs/xml/rebecca.e29.dialogs.xsd"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http:///Rebecca.E29/src/rebecca/e29/dialogs/xml/rebecca.e29.dialogs.xsd">
+	<xsd:complexType name="Passage">
+		<xsd:sequence>
+			<xsd:element name="name" type="xsd:string"></xsd:element>
+    		<xsd:sequence minOccurs="0" maxOccurs="unbounded">
+    			<xsd:element name="Sentences" type="this:Sentence"></xsd:element></xsd:sequence>
+    	</xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="Sentence">
+    	<xsd:sequence>
+    		<xsd:element name="name" type="xsd:string"></xsd:element>
+    		<xsd:sequence minOccurs="0" maxOccurs="unbounded">
+    			<xsd:element name="Axes" type="this:Axis"></xsd:element></xsd:sequence>
+    	</xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="Axis" abstract="true">
+    	<xsd:sequence>
+    		<xsd:element name="name" type="xsd:string"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="MultiAxis">
+    	<xsd:complexContent>
+    		<xsd:extension base="this:Axis">
+    			<xsd:sequence minOccurs="0" maxOccurs="unbounded">
+    				<xsd:element name="Axes" type="this:Axis"></xsd:element>
+    			</xsd:sequence>
+    		</xsd:extension>
+
+
+    	</xsd:complexContent>
+
+
+    </xsd:complexType>
+</xsd:schema>

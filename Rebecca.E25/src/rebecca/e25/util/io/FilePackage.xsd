@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/FilePackage" xmlns:tns="http://www.example.org/FilePackage" elementFormDefault="qualified">
+
+    <complexType name="File">
+    	<sequence minOccurs="1" maxOccurs="1">
+    		<element name="Name" type="string" minOccurs="1"
+    			maxOccurs="1">
+    		</element>
+    		<element name="Data" type="string" minOccurs="1" maxOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="Dir">
+    	<sequence>
+            <element name="Name" type="string" minOccurs="1" maxOccurs="1"></element>
+            <element name="Folder" type="tns:Dir" minOccurs="0"
+    			maxOccurs="unbounded">
+    		</element>
+    		<element name="File" type="tns:File" minOccurs="0"
+    			maxOccurs="unbounded">
+    		</element>
+    	</sequence>
+    </complexType>
+</schema>
