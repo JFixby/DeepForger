@@ -12,7 +12,7 @@ import com.jfixby.cmns.desktop.DesktopAssembler;
 import com.jfixby.rmi.client.files.RMIFileSystem;
 import com.jfixby.rmi.client.files.RMIFileSystemConfig;
 
-public class TestFileServer {
+public class TestFileServerRead {
 	public static void main(String[] args) throws IOException {
 		DesktopAssembler.setup();
 		Json.installComponent(new GdxJson());
@@ -34,6 +34,10 @@ public class TestFileServer {
 		remote_file_system.ping();
 
 		remote_file_system.ROOT().listChildren().print("scan root");
+
+		File home = remote_file_system.ROOT();
+
+		home.getFileSystem().copyFolderContentsToFolder(home, LocalFileSystem.newFile("D:\\[SHIT]"));
 
 	}
 }
