@@ -10,5 +10,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cv-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cv-red"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-lambda"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/gdx-jfixby-cmns"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
