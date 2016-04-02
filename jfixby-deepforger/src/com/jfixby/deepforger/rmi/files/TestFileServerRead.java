@@ -5,6 +5,7 @@ import java.io.IOException;
 import com.jfixby.cmns.adopted.gdx.json.GdxJson;
 import com.jfixby.cmns.api.file.File;
 import com.jfixby.cmns.api.file.LocalFileSystem;
+import com.jfixby.cmns.api.java.ByteArray;
 import com.jfixby.cmns.api.json.Json;
 import com.jfixby.cmns.api.log.L;
 import com.jfixby.cmns.api.util.JUtils;
@@ -13,31 +14,31 @@ import com.jfixby.rmi.client.files.RMIFileSystem;
 import com.jfixby.rmi.client.files.RMIFileSystemConfig;
 
 public class TestFileServerRead {
-	public static void main(String[] args) throws IOException {
-		DesktopAssembler.setup();
-		Json.installComponent(new GdxJson());
+    public static void main(String[] args) throws IOException {
+	DesktopAssembler.setup();
+	Json.installComponent(new GdxJson());
 
-		File config_file = LocalFileSystem.ApplicationHome().child("rmi-file-server.cfg");
-		byte[] data = config_file.readBytes();
+	File config_file = LocalFileSystem.ApplicationHome().child("rmi-file-server.cfg");
+	ByteArray data = config_file.readBytes();
 
-		String string = JUtils.newString(data);
-		L.d("Connecting to remote file syste", string);
+	String string = JUtils.newString(data);
+	L.d("Connecting to remote file syste", string);
 
-		ServerConfig config = Json.deserializeFromString(ServerConfig.class, string);
+	ServerConfig config = Json.deserializeFromString(ServerConfig.class, string);
 
-		RMIFileSystemConfig client_config = new RMIFileSystemConfig();
-		client_config.setRemoteHost(config.remote_host);
-		client_config.setRemotePort(config.port);
-		client_config.setRemoteBox(config.box_name);
+	RMIFileSystemConfig client_config = new RMIFileSystemConfig();
+	client_config.setRemoteHost(config.remote_host);
+	client_config.setRemotePort(config.port);
+	client_config.setRemoteBox(config.box_name);
 
-		RMIFileSystem remote_file_system = new RMIFileSystem(client_config);
-		remote_file_system.ping();
+	RMIFileSystem remote_file_system = new RMIFileSystem(client_config);
+	remote_file_system.ping();
 
-		remote_file_system.ROOT().listChildren().print("scan root");
+	remote_file_system.ROOT().listChildren().print("scan root");
 
-		File home = remote_file_system.ROOT();
+	File home = remote_file_system.ROOT();
 
-		home.getFileSystem().copyFolderContentsToFolder(home, LocalFileSystem.newFile("D:\\[SHIT]"));
+	home.getFileSystem().copyFolderContentsToFolder(home, LocalFileSystem.newFile("D:\\[SHIT]"));
 
-	}
+    }
 }
