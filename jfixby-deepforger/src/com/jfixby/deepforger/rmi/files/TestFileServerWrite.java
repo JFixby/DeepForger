@@ -2,7 +2,7 @@ package com.jfixby.deepforger.rmi.files;
 
 import java.io.IOException;
 
-import com.jfixby.cmns.adopted.gdx.json.GdxJson;
+import com.jfixby.cmns.adopted.gdx.json.RedJson;
 import com.jfixby.cmns.api.file.File;
 import com.jfixby.cmns.api.file.LocalFileSystem;
 import com.jfixby.cmns.api.java.ByteArray;
@@ -16,7 +16,7 @@ import com.jfixby.rmi.client.files.RMIFileSystemConfig;
 public class TestFileServerWrite {
     public static void main(String[] args) throws IOException {
 	DesktopAssembler.setup();
-	Json.installComponent(new GdxJson());
+	Json.installComponent(new RedJson());
 
 	File config_file = LocalFileSystem.ApplicationHome().child("rmi-file-server.cfg");
 	ByteArray data = config_file.readBytes();
