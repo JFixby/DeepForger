@@ -9,13 +9,13 @@ import com.jfixby.cmns.api.java.ByteArray;
 import com.jfixby.cmns.api.json.Json;
 import com.jfixby.cmns.api.log.L;
 import com.jfixby.cmns.api.util.JUtils;
-import com.jfixby.red.desktop.DesktopAssembler;
+import com.jfixby.red.desktop.DesktopSetup;
 import com.jfixby.rmi.client.files.RMIFileSystem;
 import com.jfixby.rmi.client.files.RMIFileSystemConfig;
 
 public class TestFileServerWrite {
     public static void main(String[] args) throws IOException {
-	DesktopAssembler.setup();
+	DesktopSetup.deploy();
 	Json.installComponent(new RedJson());
 
 	File config_file = LocalFileSystem.ApplicationHome().child("rmi-file-server.cfg");
