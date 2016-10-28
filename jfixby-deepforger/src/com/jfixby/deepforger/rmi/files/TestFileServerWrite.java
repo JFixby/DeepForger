@@ -34,7 +34,7 @@ public class TestFileServerWrite {
 	RMIFileSystem remote_file_system = new RMIFileSystem(client_config);
 	remote_file_system.ping();
 
-	remote_file_system.ROOT().listChildren().print("scan root");
+	remote_file_system.ROOT().listDirectChildren().print("scan root");
 
 	File home = remote_file_system.ROOT();
 	File file = home.child("1");
