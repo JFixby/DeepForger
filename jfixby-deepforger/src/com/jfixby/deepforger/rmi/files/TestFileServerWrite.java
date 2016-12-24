@@ -3,15 +3,15 @@ package com.jfixby.deepforger.rmi.files;
 
 import java.io.IOException;
 
-import com.jfixby.cmns.api.desktop.DesktopSetup;
-import com.jfixby.cmns.api.file.File;
-import com.jfixby.cmns.api.file.LocalFileSystem;
-import com.jfixby.cmns.api.java.ByteArray;
-import com.jfixby.cmns.api.json.Json;
-import com.jfixby.cmns.api.log.L;
-import com.jfixby.cmns.api.util.JUtils;
-import com.jfixby.rmi.client.files.RMIFileSystem;
-import com.jfixby.rmi.client.files.RMIFileSystemConfig;
+import com.jfixby.scarabei.api.desktop.DesktopSetup;
+import com.jfixby.scarabei.api.file.File;
+import com.jfixby.scarabei.api.file.LocalFileSystem;
+import com.jfixby.scarabei.api.java.ByteArray;
+import com.jfixby.scarabei.api.json.Json;
+import com.jfixby.scarabei.api.log.L;
+import com.jfixby.scarabei.api.util.JUtils;
+import com.jfixby.scarabei.rmi.client.files.RMIFileSystem;
+import com.jfixby.scarabei.rmi.client.files.RMIFileSystemConfig;
 
 public class TestFileServerWrite {
 	public static void main (final String[] args) throws IOException {
